@@ -2,8 +2,10 @@ package com.example.UberReviewService.models;
 
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
 
@@ -13,27 +15,38 @@ import java.util.Date;
 
 //Table annotation is going to manipilate things on the database where as Entity annotation manipulates thing on the java end.
 
+@Getter
+@Setter
+@Builder //implements the builder pattern
+@NoArgsConstructor
 @Entity
 @Table(name = "bookingreview")
+@EntityListeners(AuditingEntityListener.class)
+@AllArgsConstructor
 public class Review {
 
     //@Id annotation makes the id property a primary key of our table
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //identity means auto increment
-    Long Id;
+    private Long Id;
 
     @Column(nullable = false)
-    String reviewContent;
+    private String reviewContent;
 
-    Double rating;
+    private Double rating;
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP) // this tells spring about the format of Date object to be stored i.e Date/Time/Timestamp
     @CreatedDate //this annotation tells spring that only handle for object creation
-    Date createdAt;
+    private Date createdAt;
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate //this annotation tells spring that only handle for object updation
-    Date updatedAt;
+    private Date updatedAt;
+
+    @Override
+    public String toString() {
+        return this.reviewContent + " " + this.rating + " " + this.createdAt;
+    }
 }
