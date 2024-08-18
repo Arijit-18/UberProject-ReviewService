@@ -22,6 +22,10 @@ import java.util.Date;
 @Entity
 @Table(name = "bookingreview")
 @AllArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED) //creates a single table containing the child and parent properties
+//Table per class also does the same but there is a dedicated table for the parent and child contains all the parent properties.
+//Joined helps us not to store redundant data again and again
+
 public class Review extends BaseModel {
 
     @Column(nullable = false)
