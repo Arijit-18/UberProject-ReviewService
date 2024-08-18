@@ -10,5 +10,10 @@ import lombok.Setter;
 @Setter
 public class PassengerReview extends Review{
     //in a single table nullable=false is not applicable
+
+    @Column(nullable = false)
     private String passengerReviewComment;
+
+    @Column(nullable = false)
+    private String passengerRating;
 }

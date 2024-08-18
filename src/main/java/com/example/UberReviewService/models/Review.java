@@ -20,7 +20,7 @@ import java.util.Date;
 @Builder //implements the builder pattern
 @NoArgsConstructor
 @Entity
-@Table(name = "bookingreview")
+@Table(name = "booking_review")
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED) //creates a single table containing the child and parent properties
 //Table per class also does the same but there is a dedicated table for the parent and child contains all the parent properties.

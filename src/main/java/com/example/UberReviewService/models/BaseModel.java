@@ -26,7 +26,7 @@ MappedSuperclass(it is given to the base model/class) -> 1. No table for parent 
 @Setter
 public abstract class BaseModel {
     //@Id annotation makes the id property a primary key of our table
-    @jakarta.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //identity means auto increment
     private Long Id;
 
