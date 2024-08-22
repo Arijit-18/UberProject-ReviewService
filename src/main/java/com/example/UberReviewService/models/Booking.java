@@ -1,6 +1,5 @@
 package com.example.UberReviewService.models;
 
-import com.example.UberReviewService.repositories.ReviewRepository;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -35,4 +34,10 @@ public class Booking extends BaseModel{
     private Date endTime;
 
     private Long totalDistance;
+
+    @ManyToOne
+    private Driver driver;
+
+    @ManyToOne
+    private Passenger passenger;
 }
