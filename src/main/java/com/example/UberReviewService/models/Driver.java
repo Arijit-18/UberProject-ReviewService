@@ -1,9 +1,6 @@
 package com.example.UberReviewService.models;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -24,6 +21,11 @@ public class Driver extends BaseModel{
 
     //1:many, Driver:Booking
     //mapped by references to the property in the Booking class that we are attaching
-    @OneToMany(mappedBy = "driver")
+    // if we want to fetch data immediately from the tables that we are related to then we use EAGER, else LAZY
+    //in 1:1 / many:1 mapping default fetch mode is EAGER
+    //in 1:many default fetch mode is LAZY
+    //in many:many default fetch mode is LAZY
+
+    @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY)
     private List<Booking> bookings = new ArrayList<>();
 }
