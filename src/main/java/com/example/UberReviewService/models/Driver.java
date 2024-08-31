@@ -2,6 +2,8 @@ package com.example.UberReviewService.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,5 +29,6 @@ public class Driver extends BaseModel{
     //in many:many default fetch mode is LAZY
 
     @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SUBSELECT) //this solves the N+1 problem and does the job in a single query
     private List<Booking> bookings = new ArrayList<>();
 }
