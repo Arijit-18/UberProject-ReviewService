@@ -29,12 +29,12 @@ import java.util.Date;
 public class Review extends BaseModel {
 
     @Column(nullable = false)
-    private String reviewContent;
+    private String content;
 
     private Double rating;
 
     @Override
     public String toString() {
-        return this.reviewContent + " " + this.rating + " " + this.createdAt;
+        return this.content + " " + this.rating + " " + this.createdAt;
     }
 }

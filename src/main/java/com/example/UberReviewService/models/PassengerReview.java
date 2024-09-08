@@ -12,7 +12,7 @@ public class PassengerReview extends Review{
     //in a single table nullable=false is not applicable
 
     @Column(nullable = false)
-    private String passengerReviewComment;
+    private String passengerReviewContent;
 
     @Column(nullable = false)
     private String passengerRating;

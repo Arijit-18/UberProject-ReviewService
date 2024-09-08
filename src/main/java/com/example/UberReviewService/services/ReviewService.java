@@ -68,16 +68,16 @@ public class ReviewService implements CommandLineRunner {
 
 //        Optional<Driver> d = driverRepository.hqlFindByIdAndLicense(1L, "JH097235");
 //        System.out.println(d.get().getName());
-        List<Long> driverIds = new ArrayList<>(Arrays.asList(1L, 2L, 5L, 6L));
-        List<Driver> drivers = driverRepository.findAllByIdIn(driverIds);
+//        List<Long> driverIds = new ArrayList<>(Arrays.asList(1L, 2L, 5L, 6L));
+//        List<Driver> drivers = driverRepository.findAllByIdIn(driverIds);
 
 //        List<Booking> bookings = bookingRepository.findAllByDriverIn(drivers);
 
         //to execute one query we are executing more n+1 queries, this is called the n+1 problem
-        for(Driver driver : drivers) {
-           List<Booking> bookings = driver.getBookings();
-           bookings.forEach(booking -> System.out.println(booking.getId()));
-        }
+//        for(Driver driver : drivers) {
+//           List<Booking> bookings = driver.getBookings();
+//           bookings.forEach(booking -> System.out.println(booking.getId()));
+//        }
     }
 
 }
