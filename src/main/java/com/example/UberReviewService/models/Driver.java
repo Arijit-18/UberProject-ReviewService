@@ -21,6 +21,9 @@ public class Driver extends BaseModel{
     @Column(nullable = false, unique = true)
     private String licenseNumber;
 
+    private String phoneNumber;
+
+
     //1:many, Driver:Booking
     //mapped by references to the property in the Booking class that we are attaching
     // if we want to fetch data immediately from the tables that we are related to then we use EAGER, else LAZY
