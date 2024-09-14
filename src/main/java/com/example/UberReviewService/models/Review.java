@@ -7,6 +7,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.awt.print.Book;
 import java.util.Date;
 
 //ORM like hibernate helps us to create tables in the database by writing class based java code.
@@ -32,6 +33,10 @@ public class Review extends BaseModel {
     private String content;
 
     private Double rating;
+
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(nullable = false)
+    private Booking booking;
 
     @Override
     public String toString() {

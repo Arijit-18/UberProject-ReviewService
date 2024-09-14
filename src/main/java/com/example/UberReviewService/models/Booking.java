@@ -21,8 +21,7 @@ public class Booking extends BaseModel{
     //cascade helps in creation/deletion of dependent objects
     //in 1:1 mapping any one table can have ID of another table
     //in 1:many, the many side has the foreign key in its table
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    private Review review;
+
 
     @Enumerated(value = EnumType.STRING) // this annotation tells spring that this is an enum, and value tells the type it will be stored
     private BookingStatus bookingStatus;

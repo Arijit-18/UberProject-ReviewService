@@ -13,7 +13,4 @@ import java.util.List;
 public interface BookingRepository extends JpaRepository<Booking, Long> {
 
     //commented these because reviewService is not supposed to fetch driver centric data
-//    List<Booking> findAllByDriverId(Long driverId);
-//
-//    List<Booking> findAllByDriverIn(List<Driver> drivers);
 }
