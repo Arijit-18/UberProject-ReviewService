@@ -16,6 +16,7 @@ public interface DriverRepository extends JpaRepository<Driver, Long> {
     Optional<Driver> findByIdAndLicenseNumber(Long id, String licenseNumber);
 
     //In case of complex tables and queries where a lot of joins are required, we use either raw query or hibernate query
+
     //raw query, any error is thrown at runtime if query has issue
     @Query(nativeQuery = true, value = "SELECT * FROM Driver WHERE id = :id AND license_number = :license")
     Optional<Driver> rawFindByIdAndLicenseNumber(Long id, String license);
